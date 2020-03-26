@@ -1,0 +1,124 @@
+<!DOCTYPE HTML> <!--Step 1 - Add basic tags for page layout DOCTYPE,HTML,HEAD,BODY-->
+<html>
+    <head>
+        <title>The Page Of James</title> <!--Step 2 - Add a title to the page--> 
+        <style>
+    /*Step 9 - Add CSS styling to the page  */
+    body {
+        background: rgb(153, 153, 102);
+        color: rgb(45, 45, 45);
+        padding: 10px;
+        font-family: arial;
+    }
+    header {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    #all-contents {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    /* navigation menu */
+        /*Step 10 - Play around with CSS - margin, color, & border-radius */
+    nav {
+        background: rgb(204, 153, 0);
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        padding: 10px;
+        border-radius: 25px; /*Extra Credit - add "border-radius" to NAV element */
+    }
+    nav header {
+        display: flex;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        flex: 1;
+    }
+    nav ul {
+        list-style-image: none;
+    }
+    nav li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* main container area beneath menu */
+    main {
+        background: rgb(204, 102, 0);
+        display: flex;
+    }
+    .sidebar {
+        margin-right: 25px;
+        padding: 10px;
+    }
+    .sidebar img {
+        border-radius: 25px;
+        width: 200px;
+        height: 150px;
+    }
+    .content {
+        flex: 1;
+        padding: 15px;
+    }
+    .interests header {
+        font-size: 1.25em;
+    }
+</style>
+
+    </head>
+    
+    <body>
+      <div id='all-contents'> <!--Step 3 - Create sections for Navbar and Main content sections--> 
+                                                   
+                                                               <!-- Navigation Bar-->
+          <nav>
+            <!--Step 8 - Creat a navigation & site title -->
+              <header>Who Is James F. Thomas?</header
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="portfolio.html">Portfolio </a></li>
+              </ul>
+          
+          </nav>
+          
+                                                                <!-- Main Content Section-->
+          <main> <!--Step 4 - Add 2 DIV tags inside main with "sidebar" & "content" classes  -->
+              
+              <div class='sidebar'> 
+              <!--Step 6 - Add an IMAGE to "sidebar" DIV -->
+                  <img src="http://www.k2body.com/uploads/7/3/3/6/73360681/published/james.jpg?1547956307">
+                  <figcaption>Future Coder</figcaption>
+              </div>
+              <!--Step 5 - Create HEADER & P tags inside "conetent" DIV -->
+              <div class='content'> 
+                  <header>
+                      James F. Thomas
+                  </header>
+                  <p>
+                     Current Student of Operation Spark - Bootcamp Course 
+                  </p>
+                  <!--Step 7 - Create an "Interests" list -->
+                  <section class="interests"> 
+                      <header>I am interested in:</header>
+                          <ul>
+                              <li>Coding</li>
+                              <li>Creation</li>
+                              <li>Peace</li>
+                          </ul>
+                      
+                  </section>
+                  
+              </div>
+                  
+              
+          
+          </main>
+          
+      </div>
+    </body>
+</html>
