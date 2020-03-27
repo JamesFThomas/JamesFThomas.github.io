@@ -1,7 +1,7 @@
 <!DOCTYPE HTML> <!--Step 1 - Add basic tags for page layout DOCTYPE,HTML,HEAD,BODY-->
 <html>
     <head>
-        <title>The Page Of James</title> <!--Step 2 - Add a title to the page--> 
+        <title>The Page Of James F. Thomas</title> <!--Step 2 - Add a title to the page--> 
         <style>
     /*Step 9 - Add CSS styling to the page  */
     body {
@@ -60,11 +60,17 @@
         border-radius: 25px;
         width: 200px;
         height: 150px;
+        border: dotted 5px black;
     }
     .content {
         flex: 1;
         padding: 15px;
     }
+    #content-header {
+        text-align: center;
+        text-decoration: underline;
+    }
+    
     .interests header {
         font-size: 1.25em;
     }
@@ -96,9 +102,7 @@
               </div>
               <!--Step 5 - Create HEADER & P tags inside "conetent" DIV -->
               <div class='content'> 
-                  <header>
-                      James F. Thomas
-                  </header>
+                  <header id="content-header">James F. Thomas</header>
                   <p>
                      Current Student of Operation Spark - Bootcamp Course 
                   </p>
