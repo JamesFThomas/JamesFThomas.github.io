@@ -25,14 +25,26 @@
     //2. String //
   
   /*
-   * 0. The "string" data type is one that represents textual values like: names, discrpitions, or senetences.  
+   * 0. The "string" data type is one that represents textual values like names, descriptions, or sentences.  
    *
-   * 1. In order for compiler to recognize string type data that information must be housed within doublt " " or single '' .
+   * 1. In order for the compiler to recognize string type data that information must be housed within double " " or single  ' '.
    *
    * 2. Any number, symbol, or character placed inside "" or '' becomes a string value.
+   *
+   * 3. The values of the string are called elements and these elements are stored in this data type by numbered places called indexes
+   *
+   * 4. The indexes of each string element begin at the first letter which is 0 and counted by 1 until the end or last letter
+   *
+   * 5. We can access the elements of a string by using that index number in bracket notation to return the value or character at that index
+   *
    */
    
-   var myString = "This is a string.";
+   var myString = "This is a string."; //this is a string
+   
+   var accessString = myString[0]; //this is bracket notation to acces the first index or character in this string
+   
+   console.log(accessString); //this will print the 0 indexes of the string which is "T"
+
    
     
     
@@ -60,25 +72,49 @@
    * 2. The numbered positions in the array are called the 'index' while each stored value is called an 'element'.
    *
    * 3. The array data type or an array literal is created by assigning a value to a set of "[]" square brackets.
+   *
+   * 4. Just like with the string data type we can access the individual elements of the array using bracket notation and the index number
+   *
+   *
+   *
+   *
    */  
    
-   let exampleArray = [];
+   let exampleArray = [1,2,3]; //this is an array with 3 element inside it
    
+   let firstArrayElement = exampleArray[0]; //this code will access the first element in the array list
+   
+   console.log(firstArrayElement); //this will print '1' since it is the element of the array housed at the 0 index
+   
+
      
      
      //5. Object //
   
   /*
-   * 0. The Object data type is an un-ordered or non-numbered collection of related data.  
+   * 0. The Object data type is an unordered or non-numbered collection of related data.  
    *
-   * 1. The contained data in the Object data type is stored in sets called "key:value" pairs, and can be comprised of all other javascript data types including other objects.
+   * 1. The contained data in the Object data type is stored in sets called "key: value" pairs, and can be comprised of all other javascript data types including other objects.
    *
-   * 2. The Object data type or object literal is intaiulized by assigning a declared value too a set of curly braces "{}".
+   * 2. The Object data type or object literal is initialized by assigning a declared value to a set of curly braces "{}".
+   *
+   * 3. The key: values in Object are unordered meaning having no index numbers like strings and arrays so they are accessed in a different notation called 'dot'
+   *    Dot notation involves writing the object name than a "." followed by the key name. Now you can Also use bracket notation but the key name must be represented as a string in quotes to indicate this a key in the object  
+   *
    */
    
    let exampleObject = {};
    
+   exampleObject.name = "James"; //this assigns the first key-values pair in the object
+   exampleObject.alive = true; //setting second key-value pair
    
+   let objectValue = exampleObject.name; // variable accessing value located in the object at the key of name dot notation
+   let objectValue2 = exampleObject['alive']; //variable accessing value located in object at alive key bracket notation
+   
+   console.log(objectValue, objectValue2); //prints "James, true" to console 
+   
+   
+
    
    
        //6. Function //
@@ -221,11 +257,28 @@ console.log(typeof(exampleComplex)); // prints --> object
    * 0. When a primitive value is assigned to a variable the container created holds that actual value. 
    *    When you pass by copy, this means that the creation of a new variable passes a copy of that variable into the newly created container. Both containers have a copy of the same value. 
    *
-   * 1. Passing by reference will create a new container for the value, but b oth containers hold an address to the actual object which is saved on the heap and not the actual object itself.  
+   * 1. Passing by reference will create a new container for the value, but both containers hold an address to the actual object which is saved on the heap and not the actual object itself.  
    *
    *
    */
    
-   
-   
+        //Pass by copy//
+ let a = "I'm a copy, Hello!";
+ 
+ let b = "And so am I!"
+ 
+ let c = a; //variable 'c' now has a copy of the value that was stored in variable a declared earlier 
+ 
+ let d = b; // variable "d" now has a coy of the value saved in variable b declared earlier 
+ 
+console.log(c,d); //print "I'm a copy, Hello!", "And so am I!" copies of the values housed in 'a' and 'b'
 
+
+
+      //Pass by Reference//
+ 
+let exampleReference = ['You', 'can only copy', 'me by reference']; // variable assigned to complex data type
+
+let copyReference = exampleReference; //variable assigned by reference to example array houses reference to the same array.
+
+console.log(copyReference);// prints 'You', 'can only copy', "me by reference"

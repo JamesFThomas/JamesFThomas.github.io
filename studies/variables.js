@@ -20,20 +20,22 @@ var myName;
 
 let myName1;
 
-//const myName2 = 2;
+//const myName2;
 
 /*
- * 1.  At the declaration phase, the variable myName is undefined because we have NOT initialized
- * it to anything 
- * 
- * 2.  The use of the keyword 'let' or 'const' will declare an undefined variable but will cause the compiler to return an error message if not assigned a value.  
+ * 1.  At the declaration phase, the variable myName is undefined because we have NOT initialized it to any value.
+ *       
+ * 2.  The use of the keyword 'const' will declare an undefined variable but will cause the compiler to return an error message if not assigned a value.  
+ *
+ * 3.   The use of either the keywords "var" or "let" will intialize a varible with no value but return undefined if logged before varibale is assigned a value
+ *
  */
 
 console.log(myName); // prints => undefined
 
-console.log(myName1); // prints => error
+console.log(myName1); // prints => undefined
 
-//console.log(myName2); // prints => error 
+console.log(myName2); // prints => error 
 
 
 // 2. initialization or assignment //
