@@ -214,17 +214,36 @@ function isFriend(name, object) {
       assert.deepEqual(nonFriends("Jimmy", data), ["Bob"]);
       assert.deepEqual(nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
       assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
- */
+*/
  
 
-function nonFriends(name, array) {
 
-    if(array.includes(name)){
-        var deleteMe = array.indexof(name);
-        array.splice(deleteMe,1)
-        return array;
-}
-    
+
+function nonFriends(name, array) {
+   var allNames = []; //empty array for all names
+    var removeNames = [];//array for names to remove (own name + friends)
+    var notFriends = [];//array for non-friends
+    //for loop through input array
+    for (let i = 0; i < array.length; i++) {
+      //push name values from name key at each array element
+      allNames.push(array[i].name);
+      if (array[i].name === name) {//if name matches input name:
+          removeNames.push(name);//add to remove list
+          // loop through friends list within each element of input array  
+          for (let index = 0; index < array[i].friends.length; index++) {
+            //push current friends into remove list
+            removeNames.push(array[i].friends[index]);
+          } 
+        }
+    }
+    //for loop through all names 
+    for (let count = 0; count < allNames.length; count++) {
+      //if removeNames list does NOT include the name:
+      if (removeNames.includes(allNames[count]) === false) {
+        notFriends.push(allNames[count]);//push into non-friends list
+      }
+    } 
+  return notFriends;//return list of non-friends
 }
 
 

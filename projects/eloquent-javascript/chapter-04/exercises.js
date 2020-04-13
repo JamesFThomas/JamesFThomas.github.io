@@ -156,9 +156,29 @@ the list (with zero referring to the first element) or undefined when there
 is no such element.
 */
 
-function listToArray() {
+//this function will create a a new array from a input list or object
+//The function will accept one input parameter "list"
+//Next step is to declare a local variable and assign it to the value of empty array literal which will house the "list" information 
+//Follwoing the empty array the function must loop through the "list information" from the first key:value pair to the last
+    //the looping conditions were given in the hints so I used these but the mean
+        //node is intialized in the loop by the let keyword and then set to list the condition
+        //the center statement is the stopping condition and while exit the loop when the variable node become equal to null
+        //the final "rest" key in the inner most object has a value of null so thhe loop will end there
+        //the final satement is the incremetor and it will move the node value through the list to the "rest" key until it equals null
+//As the function loops through the list is will push each key:value pair to the empty array literal
+//The final step is to have the function return this newly populated array
 
+
+function listToArray(list) {// intial parameter "list"
+  let newArray = []; //decalring local variable and assigning value of empty array literal
+    for (let node = list; node; node = node.rest){//delcare for loop and setting conditions of it to move through input list
+      newArray.push(node.value); //using push method on the local array to place list contents into array 
+      }
+    return newArray;//returning the new array with all the input list cintents inside it.
 }
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
@@ -172,21 +192,19 @@ is no such element.
 */
 
 
-// input the 2 parameters that will be used in this function 'element' & 'list'
-//create a new local list varibale to add old list key value piars to at first position
-// return new list object with updated value property
+// This fucntion will take 2 input parameters that will be used in this function 'element' & 'list'
+//We will then create a new local list object to add input list key value pairs into
+//Once the object has been created will assign the input parameters to the empty object literal
+// Our last step is to return new list object with updated value property
 
 
-function prepend(element, list) {
-  var newObject = {};
-  newObject.value = element,
-  newObject.rest = list;
-  return newObject;
+function prepend(element, list) { //input parameters 
+  let newObject = {}; //declaring new empty object literal 
+  newObject.value = element; //intilailizing value key and assinging it a value of the input element parameter
+  newObject.rest = list; // intializing rest key and assigning it a value of the input list parameter
+  return newObject; //returning this new object.
 }
 
-// function prepend(value, list) { // Declaring a function called prepend and giving it the parameters of value and list
-//   return { value, rest: list }; // Should return the property of value and the property of rest is assigned to list list
-// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
@@ -202,13 +220,21 @@ is no such element.
 //input the 2 parameters that the function will perform an action on "list" "number" 
 // if number 
 function nth(list, number) {
- console.log(list);
+ for (let node = list; node; node = node.rest){
+//   if (!list){
+//   return undefined;
+// }
   if (number === 0){// stopping point of our looping thourgh list
     return list.value;
-  }
+  } else {
   //number is number of level left to get to nested object
-  nth(list.rest, --number);   //this is your loop  
+    return  nth(list.rest, number - 1);   //this is your loop  
+  }
+ }
 }
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
@@ -240,24 +266,46 @@ properties of objects to compare them.
 
 
 function deepEqual(value1, value2) {//create parameters to represent the 2 input values we will be given to compare
-  if (value1 === value2 && value1 !== null && typeof value1 !== 'object'){//this conditional tests values for likeness and that they are not null
-        return true;// becuase both vlaues are equal and not null return true.
-  } else if (typeof value1 !== 'object' || typeof value2 !== 'object'){//if both values are not objects then return false 
-        return false;//return statement for else if conditional 
-  } 
-// all of this below is about comparing objects  
-//if both values are the same type and objects they need to be compared in order to do that I will take values out of objects
+//   if (value1 === value2 && value1 !== null ){//this conditional tests values for likeness and that they are not null
+//         return true;// becuase both vlaues are equal and not null return true.
+//   } else if (typeof value1 !== 'object' || typeof value2 !== 'object'){//if both values are not objects then return false 
+//         return false;//return statement for else if conditional 
+//   } 
+// // all of this below is about comparing objects  
+// //if both values are the same type and objects they need to be compared in order to do that I will take values out of objects
 
     
-  var keyN1 = Object.keys(value1); //created arrays of value1 and value2 key names to compare using Object.keys method                                  
-  var keyN2 = Object.keys(value2);
-    for(let i = 0; i < keyN1.length; i++){//using a for loop to iterate through local arrays to see if there elements match
-        if (!keyN2.includes(i) || !deepEqual(keyN1[i],keyN2[i])){//if the elements after being compared in the for loop don't match or the values saved in the objects keyN1 and keyN2 don't match return false.
-          return false;//return command for function follwoing conditional block 
-        }
-      }
-      return true; //final return statement 
+//   var keyN1 = Object.keys(value1); //created arrays of value1 and value2 key names to compare using Object.keys method                                  
+//   var keyN2 = Object.keys(value2);
+//   for(let i = 0; i < keyN1.length; i++){//using a for loop to iterate through local arrays to see if there elements match
+//       if (keyN2.includes(i) || deepEqual(keyN1[i],keyN2[i])){//if the elements after being compared in the for loop don't match or the values saved in the objects keyN1 and keyN2 don't match return false.
+//           return true;//return command for function follwoing conditional block 
+//         }
+//       }
+//   return false; //final return statement 
+
+  // if (value1 == {} && value2 == {}) { 
+  //   return true;
+  // } 
+  
+  if (value1 === value2 && value1 !== null && typeof value1 !== "object" ){//this conditional tests values for likeness and that they are not null
+        return true;// becuase both vlaues are equal and not null return true.
   } 
+  
+  if (typeof value1 != 'object' || typeof value2 != 'object'){//if both values are not objects then return false 
+        return false;//return statement for else if conditional 
+  } 
+  
+  
+    let objectKeys1 = Object.keys(value1);
+    let objectKeys2 = Object.keys(value2);
+    for (let props of objectKeys1 ){
+      if (!objectKeys2.includes(props) || !deepEqual(value1[props], value2[props])){
+        return false;
+      } 
+    }
+  return true;
+} 
 
 
 
