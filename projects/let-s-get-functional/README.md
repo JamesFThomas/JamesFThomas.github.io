@@ -29,61 +29,61 @@ const _ = require('lodown-oliviasaborush');
  
  _IMPORTANT_: Make sure you replace `<YOUR_GITHUB_FOLDER` with your actual github folder in your workspace.
 
-### 1: `maleCount`
+### 1: `maleCount` //done
  - **Objective**: Find the number of male customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**: use `filter`
 
-### 2: `femaleCount`
+### 2: `femaleCount` //done
  - **Objective**: Find the number of female customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**: use `reduce`
 
-### 3: `oldestCustomer`
+### 3: `oldestCustomer`//done
  - **Objective**: Find the oldest customer's name
  - **Input**: `Array`
  - **Output**: `String`
  - **Constraints**:
 
-### 4: `youngestCustomer`
+### 4: `youngestCustomer`//done
  - **Objective**: Find the youngest customer's name
  - **Input**: `Array`
  - **Output**: `String`
  - **Constraints**:
 
-### 5: `averageBalance`
+### 5: `averageBalance`//done
  - **Objective**: Find the average balance of all customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**:
 
-### 6: `firstLetterCount`
+### 6: `firstLetterCount`//done
  - **Objective**: Find how many customer's names begin with a given letter
  - **Input**: `Array`, `Letter`
  - **Output**: `Number`
  - **Constraints**:
 
-### 7: `friendFirstLetterCount`
+### 7: `friendFirstLetterCount`//done
  - **Objective**: Find how many friends of a given customer have names that start with a given letter
  - **Input**: `Array`, `Customer`, `Letter`
  - **Output**: `Number`
  - **Constraints**:
 
-### 8: `friendsCount`
+### 8: `friendsCount`//done
  - **Objective**: Find the customers' names that have a given customer's name in their friends list
  - **Input**: `Array`, `Name`
  - **Output**: `Array`
  - **Constraints**:
 
-### 9: `topThreeTags`
+### 9: `topThreeTags` // done
  - **Objective**: Find the three most common tags among all customers' associated tags
  - **Input**: `Array`
  - **Output**: `Array`
  - **Constraints**:
 
-### 10: `genderCount`
+### 10: `genderCount`//working 
  - **Objective**: Create a summary of genders, the output should be:
 ```javascript
 {

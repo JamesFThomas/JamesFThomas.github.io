@@ -255,7 +255,8 @@ console.log(typeof(exampleComplex)); // prints --> object
   
   /*
    * 0. When a primitive value is assigned to a variable the container created holds that actual value. 
-   *    When you pass by copy, this means that the creation of a new variable passes a copy of that variable into the newly created container. Both containers have a copy of the same value. 
+   *    When you pass by copy, this means that the creation of a new variable passes a copy of that variable into the newly created container. 
+   *    Both containers have a copy of the same value. 
    *
    * 1. Passing by reference will create a new container for the value, but both containers hold an address to the actual object which is saved on the heap and not the actual object itself.  
    *
@@ -263,22 +264,38 @@ console.log(typeof(exampleComplex)); // prints --> object
    */
    
         //Pass by copy//
- let a = "I'm a copy, Hello!";
+ let a = "I'm a copy, Hello!"; //decalred and assigned the variable "a" to a string value, a is it's own container for the string
  
- let b = "And so am I!"
+ let b = "And so am I!" //decalred and assigned the variable "b" to a string value, b is it's own container for the string
  
- let c = a; //variable 'c' now has a copy of the value that was stored in variable a declared earlier 
+ let c = a; //variable 'c' now has a copy of the value that was stored in the container of "a" declared above.
+               //reassingment of the variable "c" will change only the copy inside of it's container not the one inside "a".
  
  let d = b; // variable "d" now has a coy of the value saved in variable b declared earlier 
  
 console.log(c,d); //print "I'm a copy, Hello!", "And so am I!" copies of the values housed in 'a' and 'b'
 
+c = "I changed but a didn't ";
+
+console.log(c, a); //prints --> "I changed but a didn't " "I'm a copy, Hello!"
 
 
       //Pass by Reference//
  
-let exampleReference = ['You', 'can only copy', 'me by reference']; // variable assigned to complex data type
+let exampleReference = ['You', 'can only copy', 'me by reference']; // variable assigned to complex data type. 
+//The original array is housed in the conatiner called exampleReference  
 
-let copyReference = exampleReference; //variable assigned by reference to example array houses reference to the same array.
+let copyReference = exampleReference; //the variable assigned by reference to example array houses reference to the same array.
+// the conatiner made and labeled copyReference does not house a copy of the original array but rather a copy of the address to the original container made "exampleReference" 
 
 console.log(copyReference);// prints 'You', 'can only copy', "me by reference"
+
+exampleReference[0] = "The orginal";
+exampleReference[1] = "was changed and";
+exampleReference[2] = "so my reference chhanged";
+
+console.log(copyReference); // prints --> "The orginal", "was changed and", "so my reference chhanged"
+//changing the original array values in the exampleReference container  will also change the reference to that container.
+
+
+
