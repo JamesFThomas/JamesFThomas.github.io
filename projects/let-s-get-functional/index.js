@@ -134,8 +134,7 @@ return (sum / balances.length);
 // return local array length 
 
 var firstLetterCount = function(array, char){
-//using reduce- list, func, seed
-      let names = [];
+    let names = [];
     for (let i = 0; i < array.length; i++){
         if (array[i].name[0].toLowerCase() === char.toLowerCase()){
             names.push(array[i].name);
